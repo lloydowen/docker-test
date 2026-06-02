@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Layer 2: compile a small C program to burn a few seconds (~10s)
-RUN echo '#include <stdio.h>\nint main(){printf("ok\n");}' > /tmp/test.c \
+RUN printf '#include <stdio.h>\nint main(){printf("ok\\n");}\n' > /tmp/test.c \
     && gcc -O0 /tmp/test.c -o /usr/local/bin/testbin \
     && rm /tmp/test.c
 
