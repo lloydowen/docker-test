@@ -1,7 +1,7 @@
 # Test Dockerfile — builds in ~60 seconds
 # Serves a static HTML file via Python's http.server on port 8080
 
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
