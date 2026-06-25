@@ -3,59 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test Container</title>
+  <title>Taxiway Demo Container</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --brand: #1598fd;
+      --brand-dark: #0c61f8;
+    }
     body {
-      font-family: system-ui, sans-serif;
-      background: #0f0f0f;
-      color: #e5e5e5;
+      font-family: "Geist", ui-sans-serif, system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(21, 152, 253, 0.18), transparent 60%),
+        #000;
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      padding: 1.5rem;
     }
     .card {
-      border: 1px solid #2a2a2a;
-      border-radius: 12px;
-      padding: 2rem 2.5rem;
-      max-width: 420px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 2.5rem 2.75rem;
+      max-width: 440px;
       width: 100%;
       text-align: center;
+      background: rgba(255, 255, 255, 0.02);
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
+    }
+    .logo {
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1.25rem;
     }
     .dot {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       background: #22c55e;
       border-radius: 50%;
       display: inline-block;
       margin-right: 8px;
+      vertical-align: middle;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.7);
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
-      50% { opacity: 0.4; }
+      50% { opacity: 0.35; }
     }
-    h1 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.5rem; }
-    p { font-size: 0.9rem; color: #888; margin-top: 0.5rem; }
+    .status {
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #22c55e;
+      margin-bottom: 1rem;
+    }
+    h1 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      background: linear-gradient(90deg, var(--brand), var(--brand-dark));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    p { font-size: 0.9rem; color: #9ca3af; line-height: 1.5; }
     .badge {
       display: inline-block;
-      margin-top: 1.5rem;
+      margin-top: 1.75rem;
       font-size: 0.75rem;
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-radius: 6px;
-      padding: 4px 10px;
-      color: #666;
-      font-family: monospace;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 6px 12px;
+      color: #6b7280;
+      font-family: ui-monospace, "SF Mono", monospace;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <span class="dot"></span>
-    <h1>Container is running</h1>
-    <p>Serving on port 8080 via Python http.server</p>
+    <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1418.14 1296.8" role="img" aria-label="Taxiway">
+      <polygon fill="#0c61f8" points="1197.69 805.77 1183.63 753.28 791.65 673.86 770.47 847.83 770.47 847.84 769.81 853.26 775.53 855.92 950.22 937.03 950.22 1036.08 772.4 970.98 709.07 947.8 645.74 970.98 467.92 1036.08 467.92 937.03 642.61 855.92 648.33 853.26 647.67 847.84 647.67 847.84 626.49 673.86 234.52 753.28 220.45 805.77 270.7 795.59 136.35 1296.8 640.61 1296.8 644.95 1020.91 709.07 997.43 773.19 1020.91 777.53 1296.8 1281.8 1296.8 1147.44 795.59 1197.69 805.77"/>
+      <path fill="#1598fd" d="M766.23,116.28c30.21,31.83,46.19,74.58,46.19,118.47v207.53l279.7,146.95L934.18,0h-177.04l1.72,109.2c2.48,2.34,5.04,4.61,7.38,7.07Z"/>
+      <path fill="#1598fd" d="M605.72,234.75c0-43.89,15.98-86.64,46.19-118.47,2.34-2.47,4.9-4.73,7.38-7.08l1.72-109.2h-177.04l-157.95,589.22,279.7-146.95v-207.53Z"/>
+      <polygon fill="#1598fd" points="1418.14 1296.8 1070.52 0 1047.61 0 1395.23 1296.8 1418.14 1296.8"/>
+      <polygon fill="#1598fd" points="0 1296.8 347.62 0 370.53 0 22.91 1296.8 0 1296.8"/>
+    </svg>
+    <div class="status"><span class="dot"></span>Cleared for takeoff</div>
+    <h1>Taxiway Demo Container</h1>
+    <p>It works! This container is up and serving on port 8080.</p>
     <div class="badge">docker run -p 8080:8080 &lt;image&gt;</div>
   </div>
 </body>
