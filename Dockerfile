@@ -31,10 +31,10 @@ RUN mkdir -p /app && \
         echo "file $i: $(date)" > /app/file_$i.txt; \
     done
 
-# Copy in the HTML file
+# Copy in the HTML file and proxy-aware static server
 WORKDIR /app
-COPY index.html ./
+COPY index.html server.py ./
 
 EXPOSE 8080
 
-CMD ["python3", "-m", "http.server", "8080", "--directory", "/app"]
+CMD ["python3", "server.py"]
